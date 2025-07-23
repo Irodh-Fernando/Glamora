@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
+import userRouter from "./routers/userRouter";
 dotenv.config();
 
 const app = express();
@@ -13,6 +14,8 @@ mongoose.connect(connectionString).then(()=>{
 }).catch(()=>{
     console.log("Failed to connect to the Database");
 })
+
+app.use("users", userRouter);
 
 //Start server
 const PORT = 5000;

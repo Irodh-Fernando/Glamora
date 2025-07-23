@@ -15,7 +15,7 @@ mongoose.connect(connectionString).then(()=>{
     console.log("Failed to connect to the Database");
 })
 
-app.use("users", userRouter);
+app.use("/users", userRouter);
 
 //Start server
 const PORT = 5000;

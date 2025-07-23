@@ -1,9 +1,11 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import bodyParser from "body-parser";
 dotenv.config();
 
 const app = express();
+app.use(bodyParser.json());
 
 const connectionString = process.env.MONGO_URI;
 mongoose.connect(connectionString).then(()=>{

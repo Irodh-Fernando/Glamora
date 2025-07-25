@@ -3,10 +3,12 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import userRouter from "./routers/userRouter.js";
+import cors from "cors";
 dotenv.config();
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 app.use(
     (req,res,next)=>{
         const value = req.header("Authorization")
